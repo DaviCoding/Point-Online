@@ -44,32 +44,7 @@ Este projeto é um jogo multiplayer inspirado em Agar.io, desenvolvido com **Jav
 
 - **Movimentação:** Use as teclas **W, A, S, D** para se mover.
 - **Atirar:** Espaço
-- **Armas:** [
-  {
-    name: "Pistol",
-    damage: 10,
-    range: 2000,
-    speed: 80,
-    cooldown: 30,
-    weaponLoader: 16,
-  },
-  {
-    name: "Rifle",
-    damage: 20,
-    range: 1000,
-    speed: 100,
-    cooldown: 20,
-    weaponLoader: 32,
-  },
-  {
-    name: "Shotgun",
-    damage: 15,
-    range: 300,
-    speed: 60,
-    cooldown: 50,
-    weaponLoader: 2,
-  },
-];
+- **Armas:** Pistola: 1, Rifle: 2, Shotgun: 3
 - **Objetivo:** Sobreviva, elimine outros jogadores
 
 ## 🔗 Contribuição
