@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Criar sala</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+  </head>
+  <body>
+    <div id="form">
+      <input
+        type="text"
+        id="roomName"
+        placeholder="Nome da sala"
+        class="border border-neutral-300 p-2 rounded"
+      />
+      <input
+        type="password"
+        id="password"
+        placeholder="Senha da sala"
+        class="border border-neutral-300 p-2 rounded"
+      />
+      <input
+        type="number"
+        id="maxPlayers"
+        value="4"
+        placeholder="Máximo de players"
+        class="border border-neutral-300 p-2 rounded"
+      />
+      <button
+        onclick="createRoom()"
+        class="border border-neutral-300 p-2 rounded"
+      >
+        Criar sala
+      </button>
+    </div>
+    <table class="w-96 bg-white rounded-lg shadow-md hidden">
+      <thead>
+        <tr>
+          <th
+            class="py-2 px-4 bg-gray-200 text-left text-gray-600 font-semibold"
+          >
+            ID
+          </th>
+        </tr>
+      </thead>
+      <tbody></tbody>
+    </table>
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="./js/createRoom.js"></script>
+  </body>
+</html>

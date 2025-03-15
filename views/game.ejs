@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="shortcut icon" href="imagem/favicon.svg" type="image/x-icon" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <title>Point</title>
+    <style>
+      body {
+        margin: 0; /* Remove margens do body */
+        overflow: hidden; /* Evita barras de rolagem */
+      }
+      canvas {
+        display: block; /* Remove espaços em branco abaixo do canvas */
+      }
+
+      /* From Uiverse.io by mrhyddenn */
+      .progress-loader {
+        top: 70%;
+        left: 50%;
+        position: absolute;
+        transform: translate(-50%, -50%);
+      }
+
+      .progress-loader {
+        width: 150px;
+        background: rgba(236, 236, 238, 0.253);
+        height: 3px;
+        border-radius: 7px;
+      }
+
+      .progressSocket {
+        content: "";
+        width: 1px;
+        height: 3px;
+        border-radius: 7px;
+        background: rgb(255, 255, 255);
+        transition: 0.5s;
+        animation: loading1274 0.2s ease;
+      }
+
+      @keyframes loading1274 {
+        0% {
+          width: 0%;
+        }
+
+        100% {
+          width: 100%;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="w-screen h-screen bg-black fixed z-10" id="loadingSocket">
+      <div class="progress-loader">
+        <div class="progressSocket"></div>
+      </div>
+    </div>
+    <div
+      class="fixed bottom-5 left-1/2 transform -translate-x-1/2 w-96 h-12 bg-[#2D2D2D] rounded-full shadow-lg overflow-hidden"
+    >
+      <div
+        class="progress h-full bg-green-500 rounded-full flex justify-center items-center text-white font-medium"
+      >
+        <span>Progresso</span>
+      </div>
+    </div>
+
+    <div
+      class="fixed top-5 right-5 w-[25%] h-[30%] bg-gradient-to-br from-[#1E1E1E] to-[#2D2D2D] backdrop-blur-xl rounded-xl shadow-2xl border border-[#3A3A3A] p-4 flex flex-col"
+      id="chat"
+    >
+      <div class="flex justify-between items-center mb-3">
+        <h3 class="text-white text-lg font-semibold">Chat</h3>
+        <button
+          onclick="closeChat()"
+          class="text-white bg-red-500 hover:bg-red-600 rounded-full w-8 h-8 flex justify-center items-center"
+          aria-label="Fechar Chat"
+        >
+          &times;
+        </button>
+      </div>
+      <ul class="overflow-auto flex-grow text-white space-y-2">
+        <li class="bg-[#2D2D2D] p-2 rounded-lg">Mensagem 1</li>
+        <li class="bg-[#2D2D2D] p-2 rounded-lg">Mensagem 2</li>
+        <li class="bg-[#2D2D2D] p-2 rounded-lg">Mensagem 3</li>
+      </ul>
+    </div>
+
+    <canvas id="gameCanvas"></canvas>
+
+    <script src="/socket.io/socket.io.js"></script>
+    <script>
+      function closeChat() {
+        const chatElement = document.getElementById("chat");
+        chatElement.style.opacity = "1";
+        chatElement.style.transition = "opacity 0.3s";
+        chatElement.style.opacity = "0";
+        setTimeout(() => {
+          chatElement.style.display = "none";
+        }, 300);
+      }
+    </script>
+    <script src="./js/sketch.js" type="module"></script>
+  </body>
+</html>
